@@ -181,7 +181,7 @@ El **teorema maestro** es una herramienta poderosa para resolver relaciones de r
 
 $$ T(n) = aT\left(\frac{n}{b}\right) + f(n) $$
 
-donde $a \geq 1$ y $b > 1$ son constantes, y $f(n)$ es una función asintótica positiva. El teorema maestro proporciona tres casos que cubren todas las posibles relaciones entre $f(n)$ y $n^{\log_b{a}}$, permitiendo una rápida evaluación de la complejidad temporal del algoritmo.
+donde $a > 0$ y $b > 1$ son constantes, y $f(n)$ es una función asintótica positiva. El teorema maestro proporciona tres casos que cubren todas las posibles relaciones entre $f(n)$ y $n^{\log_b{a}}$, permitiendo una rápida evaluación de la complejidad temporal del algoritmo.
 
 ### Observaciones
 
@@ -195,7 +195,7 @@ $$
 T(n) = a T\left(\frac{n}{b}\right) + f(n)
 $$
 
-*La solución a la recurrencia está dada por:*
+*donde $a > 0$ y $b > 1$ son constantes, y $f(n)$ es una función asintótica positiva. La solución a la recurrencia está dada por:*
 
 - *Si $f(n) = \mathcal{O}(n^{\log_{b} a - \epsilon})$ para algún $\epsilon > 0$, entonces*
   
