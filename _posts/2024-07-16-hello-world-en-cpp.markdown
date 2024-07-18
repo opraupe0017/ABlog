@@ -58,7 +58,7 @@ En la línea de comandos, escribe:
 ./hello_world
 ```
 
-Deberías ver el mensaje **"Hello World!"** impreso en la consola.
+Deberías ver el mensaje **"Hello, World!"** impreso en la consola.
 
 **¡Felicitaciones!** Has creado y ejecutado tu primer programa en **C++**. Este es solo el comienzo de tu viaje en la programación con **C++**. ¡Sigue practicando y explorando más conceptos y funcionalidades del lenguaje!
 
