@@ -6,6 +6,12 @@ categories: cpp
 author: Oscar García
 ---
 
+## Contenidos
+{:.no_toc}
+
+* TOC
+{:toc}
+
 En esta publicación, aprenderemos a crear un programa en **C++** que imprima en consola el mensaje **"Hello World!"**. Este es el clásico primer programa que se escribe al aprender un nuevo lenguaje de programación. ¡Vamos a empezar!
 
 ## Paso 1: Escribir el programa
