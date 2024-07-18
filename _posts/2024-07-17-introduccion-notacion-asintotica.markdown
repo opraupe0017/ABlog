@@ -197,13 +197,13 @@ $$
 
 *La solución a la recurrencia está dada por:*
 
-- Si $f(n) = \mathcal{O}(n^{\log_{b} a - \epsilon})$ para algún $\epsilon > 0$, entonces
+- *Si $f(n) = \mathcal{O}(n^{\log_{b} a - \epsilon})$ para algún $\epsilon > 0$, entonces*
   
   $$T(n) = \Theta(n^{\log_{b} a}).$$
-- Si $f(n) = \Theta(n^{\log_{b} a})$, entonces
+- *Si $f(n) = \Theta(n^{\log_{b} a})$, entonces*
   
   $$T(n) = \Theta(n^{\log_{b} a} \log n).$$
-- Si $f(n) = \Omega(n^{\log_{b} a + \epsilon})$ para algún $\epsilon > 0$ y $a f\left(\frac{n}{b}\right) \leq c f(n)$ para algún $c < 1$ y para $n$ suficientemente grande, entonces
+- *Si $f(n) = \Omega(n^{\log_{b} a + \epsilon})$ para algún $\epsilon > 0$ y $a f\left(\frac{n}{b}\right) \leq c f(n)$ para algún $c < 1$ y para $n$ suficientemente grande, entonces*
 
   $$T(n) = \Theta(f(n)).$$
 
@@ -211,6 +211,8 @@ Este teorema proporciona una manera eficiente de determinar la complejidad tempo
 
 ## Referencias
 
-- Material sobre notación asintótica en [Khan Academy](https://es.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/a/asymptotic-notation)
+1. Cormen, Thomas H., Leiserson, Charles E., Rivest, Ronald L., & Stein, Clifford. (2022). *Introduction to Algorithms*. MIT Press.
+
+2. Material sobre notación asintótica en [Khan Academy: Notación Asintótica](https://es.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/a/asymptotic-notation)
 
 **¡Gracias por leer este post!**
