@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hello World! en C++"
+title:  "Hello, World! en C++"
 date:   2024-07-16 12:00:00 -0500
 categories: cpp
 author: Oscar García
@@ -12,7 +12,7 @@ author: Oscar García
 * TOC
 {:toc}
 
-En esta publicación, aprenderemos a crear un programa en **C++** que imprima en consola el mensaje **"Hello World!"**. Este es el clásico primer programa que se escribe al aprender un nuevo lenguaje de programación. ¡Vamos a empezar!
+En esta publicación, aprenderemos a crear un programa en **C++** que imprima en consola el mensaje **"Hello, World!"**. Este es el clásico primer programa que se escribe al aprender un nuevo lenguaje de programación. ¡Vamos a empezar!
 
 ## Paso 1: Escribir el programa
 
@@ -22,7 +22,7 @@ Abre tu **IDE** o editor de texto preferido y crea un nuevo archivo llamado `hel
 #include <iostream>
 
 int main() {
-    std::cout << "Hello World!" << std::endl;
+    std::cout << "Hello, World!" << std::endl;
     return 0;
 }
 ```
@@ -31,7 +31,7 @@ int main() {
 
 - `#include <iostream>`: Esta línea incluye la librería de entrada/salida estándar de **C++** que nos permite usar `std::cout`.
 - `int main() { ... }`: Esta es la función principal del programa. Todo el código dentro de estas llaves `{}` se ejecutará al iniciar el programa.
-- `std::cout << "Hello World!" << std::endl;`: Esta línea imprime el mensaje **"Hello World!"** en la consola.
+- `std::cout << "Hello, World!" << std::endl;`: Esta línea imprime el mensaje **"Hello, World!"** en la consola.
 - `return 0;`: Esta línea indica que el programa terminó exitosamente.
 
 ## Paso 2: Compilar el programa usando GCC
