@@ -209,4 +209,8 @@ $$
 
 Este teorema proporciona una manera eficiente de determinar la complejidad temporal de muchos algoritmos recursivos comunes.
 
+## Referencias
+
+- Material sobre notación asintótica en [Khan Academy](https://es.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/a/asymptotic-notation)
+
 **¡Gracias por leer este post!**
