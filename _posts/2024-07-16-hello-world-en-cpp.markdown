@@ -62,4 +62,8 @@ Deberías ver el mensaje **"Hello, World!"** impreso en la consola.
 
 **¡Felicitaciones!** Has creado y ejecutado tu primer programa en **C++**. Este es solo el comienzo de tu viaje en la programación con **C++**. ¡Sigue practicando y explorando más conceptos y funcionalidades del lenguaje!
 
+## Actividad
+
+Para practicar sintaxis. solucionar los problemas de introducción a programación en `C++` en este [link de HackerRank](https://www.hackerrank.com/domains/cpp?filters%5Bsubdomains%5D%5B%5D=cpp-introduction).
+
 **¡Gracias por leer este post!**
