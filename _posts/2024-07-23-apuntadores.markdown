@@ -3,8 +3,10 @@ layout: post
 title:  "Apuntadores"
 date:   2024-07-23 6:00:00 -0500
 categories: cpp
-author: Oscar García, Édison Valencia y Mauricio Árias
+author: Oscar García
 ---
+
+El contenido de este artículo le pertenece al los Profesores **Édison Valencia** y **Mauricio Árias**, quienes me han permitido compartirlo por este medio.
 
 ## Contenidos
 {:.no_toc}
@@ -45,8 +47,8 @@ Un **apuntador** es un concepto fundamental en la informática que se refiere a 
 
 ## Tipos de apuntadores
 
-1. **Apuntadores Nulos:** Apuntadores que no apuntan a ninguna dirección válida. En muchos lenguajes, se representan por un valor especial (por ejemplo, nullptr en C++).
-Apuntadores a Datos: Apuntadores que almacenan la dirección de variables de datos (como enteros, caracteres, etc.).
+1. **Apuntadores Nulos:** Apuntadores que no apuntan a ninguna dirección válida. En muchos lenguajes, se representan por un valor especial (por ejemplo, `nullptr` en `C++`).
+1. **Apuntadores a Datos:** Apuntadores que almacenan la dirección de variables de datos (como enteros, caracteres, etc.).
 1. **Apuntadores a Apuntadores:** Apuntadores que almacenan la dirección de otros apuntadores, permitiendo múltiples niveles de indirección.
 1. **Apuntadores a Funciones:** Apuntadores que almacenan la dirección de funciones, permitiendo llamar a funciones a través de apuntadores.
 1. **Apuntadores a Miembros de Clases:** En lenguajes orientados a objetos, apuntadores que almacenan la dirección de miembros de clases (como datos miembro o funciones miembro).
@@ -124,6 +126,12 @@ int main() {
    - En `main()`, se define una variable `numero` y se inicializa a `5`.
    - Se llama a `incrementarPorReferencia(&numero)`, pasando la **dirección** de `numero` a la función.
    - La función modifica el valor original de `numero`, incrementándolo en `1`.
+
+---
+
+## Actividad 1
+
+Solucionar el problema de [HackerRank Pointer](https://www.hackerrank.com/challenges/c-tutorial-pointer/problem?isFullScreen=true).
 
 ---
 
