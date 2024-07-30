@@ -1,18 +1,12 @@
 ---
-layout: post
 title:  "Análisis asintótico de algoritmos"
 date:   2024-07-17 12:00:00 -0500
-categories: algorithms
-author: Oscar García
+categories: [Análisis asintótico, Big O, Big Omega, Big Theta]
+tags: [algoritmos, big o, big omega, big theta] 
+author: ok
 ---
 
 EL **análisis asintótico de algoritmos** es una herramienta fundamental en el análisis de algoritmos, ya que nos permite describir el comportamiento de un algoritmo a medida que el tamaño de la entrada crece. En este post, exploraremos las tres notaciones más comunes: **Big $\mathcal{O}$**, **Big $\Omega$** y **Big $\Theta$**, y su aplicabilidad en la **complejidad temporal**, **espacial**, **energética** y de **latencia en red**. Además, mencionaremos el **teorema maestro**, una herramienta útil para analizar algoritmos recursivos.
-
-## Contenidos
-{:.no_toc}
-
-* TOC
-{:toc}
 
 ## Definición: Complejidad del Algoritmo
 
@@ -85,19 +79,20 @@ Si un tiempo de ejecución es $T(n)$, entonces para $n$ suficientemente grande, 
 
 #### **Definición formal de Big $\mathcal{O}$**
 
-*Sean $f(n)$ y $g(n)$ funciones no negativas definidas sobre los números reales. Decimos que* 
+*Sean $T(n)$ y $f(n)$ funciones no negativas definidas sobre los números reales. Decimos que* 
 
-$$f(n) = \mathcal{O}(g(n))$$
+$$T(n) = \mathcal{O}(f(n))$$
 
 *si existen constantes positivas $a$ y $n_0$ tales que:*
 
 $$
-0 \leq f(n) \leq a \cdot g(n) \quad \text{para todo} \quad n \geq n_0
+0 \leq T(n) \leq a \cdot f(n) \quad \text{para todo} \quad n \geq n_0
 $$
 
-<img src="/ABlog/assets/0001_big_o.png" alt="img: gráfica big o">
+![big-o](/assets/img/0001_big_o.png)
+_Gráfica big $\mathcal{O}$_
 
-En otras palabras, $f(n)$ es $\mathcal{O}(g(n))$ si hay una constante multiplicativa $a$ que puede usarse para escalar $g(n)$ de modo que siempre sea mayor o igual a $f(n)$ para todos los valores de $n$ suficientemente grandes.
+En otras palabras, $T(n)$ es $\mathcal{O}(f(n))$ si hay una constante multiplicativa $a$ que puede usarse para escalar $f(n)$ de modo que siempre sea mayor o igual a $T(n)$ para todos los valores de $n$ suficientemente grandes.
 
 ### Notación Big $\Omega$
 La notación **Omega** se utiliza para describir un **límite inferior** de la complejidad que es requerido por un algoritmo en el mejor de los casos.
@@ -114,19 +109,20 @@ Usamos la notación big $\Omega$ para **cotas inferiores asintóticas**, ya que 
 
 #### **Definición formal de Big $\Omega$**
 
-*Sean $f(n)$ y $g(n)$ funciones no negativas definidas sobre los números reales. Decimos que* 
+*Sean $T(n)$ y $f(n)$ funciones no negativas definidas sobre los números reales. Decimos que* 
 
-$$f(n) = \Omega(g(n))$$
+$$T(n) = \Omega(f(n))$$
 
 *si existen constantes positivas $b$ y $n_0$ tales que:*
 
 $$
-0 \leq b \cdot g(n) \leq f(n) \quad \text{para todo} \quad n \geq n_0
+0 \leq b \cdot f(n) \leq T(n) \quad \text{para todo} \quad n \geq n_0
 $$
 
-<img src="/ABlog/assets/0002_big_omega.png" alt="img: gráfica big omega">
+![big-omega](/assets/img/0002_big_omega.png)
+_Gráfica big $\Omega$_
 
-En otras palabras, $f(n)$ es $\Omega(g(n))$ si hay una constante multiplicativa $b$ que puede usarse para escalar $g(n)$ de modo que siempre sea menor o igual a $f(n)$ para todos los valores de $n$ suficientemente grandes.
+En otras palabras, $T(n)$ es $\Omega(f(n))$ si hay una constante multiplicativa $b$ que puede usarse para escalar $f(n)$ de modo que siempre sea menor o igual a $T(n)$ para todos los valores de $n$ suficientemente grandes.
 
 ### Notación Big $\Theta$
 La notación big $\Theta$ proporciona una **acotación precisa** de una función, la cual nos permite describir un **límite superior e inferior al mismo tiempo**.
@@ -149,19 +145,20 @@ Usamos la notación big $\Theta$ para **cotas asintóticas exactas**, ya que aco
 
 #### **Definición formal de Big $\Theta$**
 
-*Sean $f(n)$ y $g(n)$ funciones no negativas definidas sobre los números reales. Decimos que* 
+*Sean $T(n)$ y $f(n)$ funciones no negativas definidas sobre los números reales. Decimos que* 
 
-$$f(n) = \Theta(g(n))$$
+$$T(n) = \Theta(f(n))$$
 
 *si existen constantes positivas $a$, $b$ y $n_0$ tales que:*
 
 $$
-0 \leq b \cdot g(n) \leq f(n) \leq a \cdot g(n) \quad \text{para todo} \quad n \geq n_0
+0 \leq b \cdot f(n) \leq T(n) \leq a \cdot f(n) \quad \text{para todo} \quad n \geq n_0
 $$
 
-<img src="/ABlog/assets/0003_big_theta.png" alt="img: gráfica big theta">
+![big-theta](/assets/img/0003_big_theta.png)
+_Gráfica big $\Theta$_
 
-En otras palabras, $f(n)$ es $\Theta(g(n))$ si hay constantes multiplicativas $a$ y $b$ que pueden usarse para escalar $g(n)$ de modo que siempre sea mayor o igual que $f(n)$ por abajo y menor o igual que $f(n)$ por arriba para todos los valores de $n$ suficientemente grandes.
+En otras palabras, $T(n)$ es $\Theta(f(n))$ si hay constantes multiplicativas $a$ y $b$ que pueden usarse para escalar $f(n)$ de modo que siempre sea mayor o igual que $T(n)$ por abajo y menor o igual que $T(n)$ por arriba para todos los valores de $n$ suficientemente grandes.
 
 ## Complejidades de Algoritmos
 
