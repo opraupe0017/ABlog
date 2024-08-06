@@ -123,16 +123,12 @@ _Ejemplo de ordenamiento por inserción._
 ##### Algoritmo ordenamiento por inserción en arreglo de enteros
 
 ```cpp
-#include<iostream>
-using namespace std;
-
 void insertionSort(int arr[], int n) {
-    int key, j;
-
-    for(int i = 1; i < n; i++) {
+    int i, key, j;
+    for (i = 1; i < n; i++) {
         key = arr[i];
         j = i - 1;
-        while(j >= 0 && arr[j] > key) {
+        while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j--;
         }
@@ -160,18 +156,15 @@ _Ejemplo de ordenamiento por selección._
 ##### Algoritmo ordenamiento por selección en arreglo de enteros
 
 ```cpp
-#include <iostream>
-using namespace std;
-  
-void selectionSort(int arr[], int n) { 
-    int i, j, min_idx, tmp; 
-
-    for (i = 0; i < n - 1; i++) { 
-        min_idx = i; 
-        for (j = i + 1; j < n; j++) 
-            if (arr[j] < arr[min_idx]) 
-                min_idx = j; 
-
+void selectionSort(int arr[], int n) {
+    int i, j, min_idx, tmp;
+    for (i = 0; i < n - 1; i++) {
+        min_idx = i;
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j;
+            }
+        }
         tmp = arr[min_idx]; 
         arr[min_idx] = arr[i]; 
         arr[i] = tmp; 
@@ -198,14 +191,10 @@ _Ejemplo de ordenamiento burbuja._
 ##### Algoritmo ordenamiento burbuja en arreglo de enteros
 
 ```cpp
-#include <iostream>
-using namespace std;
-
 void bubbleSort(int arr[], int n) {
-    int tmp;
-
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
+    int i, j, tmp;
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 tmp = arr[j];
                 arr[j] = arr[j + 1];
@@ -236,24 +225,20 @@ _Ejemplo de ordenamiento por mezcla._
 Este algoritmo necesita tanto la fase de divide y vencerás como la fase de mezcla, este es el script que corresponde a la mezcla.
 
 ```cpp
-#include <iostream>
-using namespace std;
-
-void merge(int arr[], int p, int q, int r) {
-    int n1 = q - p + 1;
-    int n2 = r - q;
-    int L[n1], R[n2];
-
-    for (int i = 0; i < n1; i++)
-        L[i] = arr[p + i];
-    for (int j = 0; j < n2; j++)
-        R[j] = arr[q + 1 + j];
-
+void merge(int arr[], int l, int m, int r) {
     int i, j, k;
+    int n1 = m - l + 1;
+    int n2 = r - m;
+    int L[n1], R[n2];
+    for (i = 0; i < n1; i++) {
+        L[i] = arr[l + i];
+    }
+    for (j = 0; j < n2; j++) {
+        R[j] = arr[m + 1 + j];
+    }
     i = 0;
     j = 0;
-    k = p;
-
+    k = l;
     while (i < n1 && j < n2) {
         if (L[i] <= R[j]) {
             arr[k] = L[i];
@@ -265,13 +250,11 @@ void merge(int arr[], int p, int q, int r) {
         }
         k++;
     }
-
     while (i < n1) {
         arr[k] = L[i];
         i++;
         k++;
     }
-
     while (j < n2) {
         arr[k] = R[j];
         j++;
@@ -287,10 +270,8 @@ Este es el script que corresponde a la mezcla.
 void mergeSort(int arr[], int l, int r) {
     if (l < r) {
         int m = l + (r - l) / 2;
-
         mergeSort(arr, l, m);
         mergeSort(arr, m + 1, r);
-
         merge(arr, l, m, r);
     }
 }
@@ -316,32 +297,26 @@ _Ejemplo de ordenamiento rápido_
 Para este algoritmo requerimos hacer en repetidas ocasiones *intercambios* con `swap`, una función que nos ubique en la posición correspondiente el valor en un arreglo con `partition` y la función `quickSort`.
 
 ```cpp
-#include <iostream>
-using namespace std;
-
 void swap(int *a, int *b) {
-    int t = *a;
+    int tmp = *a;
     *a = *b;
-    *b = t;
+    *b = tmp;
 }
 ```
 {: file="quickSort.cpp" }
 
 ```cpp
-int partition(int array[], int low, int high) {
-    int pivot = array[high];
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
     int i = low - 1;
-
-    for (int j = low; j < high; j++) {
-        if (array[j] <= pivot) {
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
             i++;
-            swap(&array[i], &array[j]);
+            swap(&arr[i], &arr[j]);
         }
     }
-  
-    swap(&array[i + 1], &array[high]);
-
-    return (i + 1);
+    swap(&arr[i + 1], &arr[high]);
+    return i + 1;
 }
 ```
 {: file="quickSort.cpp" }
@@ -349,10 +324,9 @@ int partition(int array[], int low, int high) {
 ```cpp
 void quickSort(int arr[], int low, int high) {
     if (low < high) {
-        int pivote = partition(arr, low, high);
-
-        quickSort(arr, low, pivote - 1);
-        quickSort(arr, pivote + 1, high);
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
     }
 }
 ```
