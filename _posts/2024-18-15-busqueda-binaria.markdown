@@ -7,7 +7,7 @@ author: ok
 ---
 
 > **Definición:** La búsqueda binaria es un algoritmo de búsqueda eficiente que localiza la posición de un valor en un arreglo **ordenado**. Compara el valor objetivo con el elemento en el medio del arreglo, y si no son iguales, elimina la mitad en la que el valor no puede estar y continúa la búsqueda en la mitad restante hasta encontrar el valor o determinar que no está presente.
-{: .prompt-warning }
+{: .prompt-warning .shadow }
 
 ## Complejidad
 
@@ -27,22 +27,21 @@ La búsqueda binaria tiene una complejidad temporal de $\mathcal{O}(\log n)$ en 
 
 cpp
 ```bash
-Función búsquedaBinaria(arreglo, n, valor_a_encontrar)
-    inicio <- 0
-    fin <- n - 1
+Función binarySearchRecursive(arreglo, inicio, fin, objetivo)
+    Si inicio es mayor que fin
+        Retornar -1  // Elemento no encontrado
 
-    Mientras inicio sea menor o igual que fin
-        medio <- valor piso de (inicio + (fin - inicio) / 2)
-        Si arreglo[medio] es igual a valor_a_encontrar
-            Retornar medio
-        Si arreglo[medio] es menor que valor_a_encontrar
-            inicio <- medio + 1
-        Sino
-            fin <- medio - 1
-        Fin Si
-    Fin Mientras
+    medio <- inicio + (fin - inicio) / 2
 
-    Retornar -1
+    Si arreglo[medio] es igual a objetivo
+        Retornar medio
+
+    Si arreglo[medio] es menor que objetivo
+        Retornar binarySearchRecursive(arreglo, medio + 1, fin, objetivo)
+
+    Sino
+        Retornar binarySearchRecursive(arreglo, inicio, medio - 1, objetivo)
+    Fin Si
 Fin Función
 ```
 
@@ -56,7 +55,7 @@ Existen variaciones como la búsqueda binaria para coincidencias aproximadas y l
 > 1. Exacta para enteros.
 > 2. Aproximada para flotantes.
 > 3. Para estructuras más complejas como un arreglo de personas y buscar por el nombre.
-{: .prompt-danger }
+{: .prompt-danger .shadow }
 
 ---
 
