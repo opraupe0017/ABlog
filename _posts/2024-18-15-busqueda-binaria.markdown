@@ -25,26 +25,123 @@ La búsqueda binaria tiene una complejidad temporal de $\mathcal{O}(\log n)$ en 
 
 ## Algoritmo
 
-cpp
 ```bash
-Función búsquedaBinaria(arreglo, n, valor_a_encontrar)
-    inicio <- 0
-    fin <- n - 1
+Función busquedaBinaria(arreglo, inicio, fin, valor_a_buscar)
+    Si inicio es mayor que fin
+        Retornar -1  // Elemento no encontrado
 
-    Mientras inicio sea menor o igual que fin
-        medio <- valor piso de (inicio + (fin - inicio) / 2)
-        Si arreglo[medio] es igual a valor_a_encontrar
-            Retornar medio
-        Si arreglo[medio] es menor que valor_a_encontrar
-            inicio <- medio + 1
-        Sino
-            fin <- medio - 1
-        Fin Si
-    Fin Mientras
+    medio <- inicio + (fin - inicio) / 2
 
-    Retornar -1
+    Si arreglo[medio] es igual a valor_a_buscar
+        Retornar medio
+
+    Si arreglo[medio] es menor que valor_a_buscar
+        Retornar busquedaBinaria(arreglo, medio + 1, fin, valor_a_buscar)
+
+    Sino
+        Retornar busquedaBinaria(arreglo, inicio, medio - 1, valor_a_buscar)
+    Fin Si
 Fin Función
 ```
+
+{::options parse_block_html="true" /}
+<details><summary markdown="span">Código en `search.h`</summary>
+```cpp
+#ifndef SEARCH_H // Comienza una guardia de inclusión para evitar inclusiones múltiples del archivo
+#define SEARCH_H // Define la macro SEARCH_H
+
+long long linearSearch(long long arr[], long long n, long long value);
+
+long long binarySearch(long long arr[], long long l, long long r, long long value);
+
+#endif // SEARCH_H
+```
+{: file="search.h" }
+</details>
+{::options parse_block_html="false" /}
+
+{::options parse_block_html="true" /}
+<details><summary markdown="span">Código en `search.cpp`</summary>
+```cpp
+#include "search.h"
+
+long long linearSearch(long long arr[], long long n, long long value) {
+  for (long long i = 0; i < n; i++) {
+    if (arr[i] == value) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+long long binarySearch(long long arr[], long long l, long long r, long long value) {
+    if (l > r) {
+        return -1;
+    }
+
+    long long mid = l + (r - l) / 2;
+
+    if (arr[mid] == value) {
+        return mid;
+    } else if (arr[mid] < value) {
+        return binarySearch(arr, mid + 1, r, value); // Search in the r half
+    } else {
+        return binarySearch(arr, l, mid - 1, value); // Search in the l half
+    }
+}
+```
+{: file="search.h" }
+</details>
+{::options parse_block_html="false" /}
+
+{::options parse_block_html="true" /}
+<details><summary markdown="span">Código en `search_test.cpp`</summary>
+```cpp
+#include <iostream>
+#include <chrono>
+#include "search.h"
+
+using namespace std;
+
+int main() {
+    long long n;
+    cout << "Ingrese el tamaño del arreglo: ";
+    cin >> n;
+
+    long long arr[n];
+    for (long long i = 0; i < n; i++) {
+        arr[i] = 2 * i;
+    }
+
+    long long value;
+    cout << "Ingrese el número entero a buscar: ";
+    cin >> value;
+
+    // Medir el tiempo de búsqueda lineal
+    auto start_linear = chrono::high_resolution_clock::now();
+    long long linear_result = linearSearch(arr, n, value);
+    auto end_linear = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed_linear = end_linear - start_linear;
+
+    // Medir el tiempo de búsqueda binaria
+    auto start_binary = chrono::high_resolution_clock::now();
+    long long binary_result = binarySearch(arr, 0, n - 1, value);
+    auto end_binary = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed_binary = end_binary - start_binary;
+
+    cout << "Resultado de búsqueda lineal: " << linear_result << endl;
+    cout << "Tiempo de búsqueda lineal: " << elapsed_linear.count() << " segundos" << endl;
+
+    cout << "Resultado de búsqueda binaria: " << binary_result << endl;
+    cout << "Tiempo de búsqueda binaria: " << elapsed_binary.count() << " segundos" << endl;
+
+    return 0;
+}
+```
+{: file="search.h" }
+</details>
+{::options parse_block_html="false" /}
+
 
 ## Variaciones
 
